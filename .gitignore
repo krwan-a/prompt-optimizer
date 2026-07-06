@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# 模型 checkpoint（太大，不上传）
+checkpoints/
+sft_checkpoints/
+
+# 数据
+data/*.txt
+data/*.jsonl
+*.jsonl
+
+# 日志
+runs/
+eval_results/
+
+# 系统
+.DS_Store
+Thumbs.db
