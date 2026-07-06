@@ -6,9 +6,8 @@ __pycache__/
 dist/
 build/
 
-# 模型 checkpoint（太大，不上传）
+# 模型 checkpoint（用 Git LFS 管理）
 checkpoints/
-sft_checkpoints/
 
 # 数据
 data/*.txt
