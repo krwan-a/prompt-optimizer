@@ -3,6 +3,27 @@
 一个学习项目：从零训练一个约 **1000 万参数**的 GPT 风格 Decoder-Only Transformer，
 专门用于**提示词优化**任务（输入粗糙需求 → 输出精炼提示词）。
 
+## 🚀 立即使用（无需训练）
+
+```bash
+# 1. 克隆
+git clone https://github.com/krwan-a/prompt-optimizer.git
+cd prompt-optimizer
+
+# 2. 安装依赖
+pip install torch tokenizers tqdm numpy
+
+# 3. 运行交互式提示词优化
+python interact.py
+```
+
+然后输入粗糙需求（如 `帮我写个Python脚本读CSV`），模型会输出精炼提示词。
+
+也可单次运行：
+```bash
+python interact.py --input "帮我写个Python脚本读CSV"
+```
+
 ## 项目结构
 
 ```
