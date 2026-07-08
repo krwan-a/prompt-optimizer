@@ -8,6 +8,8 @@ build/
 
 # 模型 checkpoint（用 Git LFS 管理）
 checkpoints/
+sft_checkpoints/sft-epoch-*
+sft_checkpoints/sft-latest.pt
 
 # 数据
 data/*.txt
@@ -17,6 +19,9 @@ data/*.jsonl
 # 日志
 runs/
 eval_results/
+
+# Gradio 缓存
+.gradio/
 
 # 系统
 .DS_Store

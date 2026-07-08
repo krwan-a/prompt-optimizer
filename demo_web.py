@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Web 演示界面 —— 一键启动，生成公网链接，老师浏览器打开就能用。
+Web 演示界面 —— 本地运行，录屏演示用。
+浏览器打开 http://127.0.0.1:7860
 """
 
 import sys
@@ -38,6 +39,7 @@ def load_model():
     model = model.to(device)
     model.eval()
     total = sum(p.numel() for p in model.parameters())
+    print(f"Model loaded: {total:,} params on {device}")
     return model, tokenizer, device, total
 
 
@@ -70,7 +72,7 @@ def optimize(rough, temperature, max_tokens, top_k):
     if e != -1:
         content = content[:e]
 
-    return f"{content}\n\n（{elapsed:.1f}s，{param_count:,} 参数模型）"
+    return f"{content.strip()}\n\n（{elapsed:.1f}s，模型参数 {param_count:,}）"
 
 
 with gr.Blocks(title="Prompt Optimizer - 提示词优化") as demo:
@@ -104,4 +106,5 @@ with gr.Blocks(title="Prompt Optimizer - 提示词优化") as demo:
     **项目结构**: `data/` 数据收集 · `tokenizer/` 分词器 · `model/` 模型架构 · `train/` 训练循环 · `eval/` 评估
     """)
 
-demo.launch(share=True, server_name="0.0.0.0")
+print(f"\n启动成功！打开浏览器访问: http://127.0.0.1:7860\n")
+demo.launch(share=False, server_name="127.0.0.1")
